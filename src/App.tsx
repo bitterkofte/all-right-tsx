@@ -3,6 +3,9 @@ import { Greet } from './components/Greet';
 import { Status } from './components/Status';
 import { Wrapper } from './components/Wrapper';
 import { Container } from './components/Container';
+import { Button } from './components/Button';
+import { Input } from './components/Input';
+import { useState } from 'react';
 
 const msgs = [
   {
@@ -20,6 +23,7 @@ const msgs = [
 ];
 
 function App() {
+  const [inputText, setInputText] = useState<string>("")
   return (
     <>
       <Greet name="Hasan" msgCount={3} msgs={msgs} />
@@ -28,6 +32,8 @@ function App() {
       <Container>
         <Wrapper>HEY</Wrapper>
       </Container>
+      <Input value={inputText} handleChange={(e) => setInputText(e.target.value)} />
+      <Button handleClick={(event, id) => console.log("Ğ", event, id)}>Run</Button>
     </>
   );
 }

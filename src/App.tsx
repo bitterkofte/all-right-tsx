@@ -6,6 +6,9 @@ import { Container } from './components/Container';
 import { Button } from './components/Button';
 import { Input } from './components/Input';
 import { useState } from 'react';
+import { Style } from './components/Style';
+import { Person } from './components/Person';
+import { PersonList } from './components/PersonList';
 
 const msgs = [
   {
@@ -22,6 +25,21 @@ const msgs = [
   },
 ];
 
+const names = [
+  {
+    first: "hasan",
+    last: "celik",
+  },
+  {
+    first: "taner",
+    last: "tolga",
+  },
+  {
+    first: "optimus",
+    last: "prime",
+  },
+]
+
 function App() {
   const [inputText, setInputText] = useState<string>("")
   return (
@@ -34,6 +52,9 @@ function App() {
       </Container>
       <Input value={inputText} handleChange={(e) => setInputText(e.target.value)} />
       <Button handleClick={(event, id) => console.log("Ğ", event, id)}>Run</Button>
+      <Style styles={{ color: "purple", display: "block" }}/>
+      <PersonList names={names}/>
+      <Person name={{first: "Bruce", last: "Wayne"}}/>
     </>
   );
 }

@@ -24,6 +24,11 @@ import { ClassComp } from './components/class-component/ClassComp';
 import { Private } from './components/auth/Private';
 import { Profile } from './components/auth/Profile';
 import { List } from './components/generics/List';
+import { RandomNumber } from './components/restriction/RandomNumber';
+import { Toast } from './components/templit/Toast';
+import { CustomButton } from './components/html/CustomButton';
+import { CustomInput } from './components/html/CustomInput';
+import { CustomComponent } from './components/html/CustomComponent';
 
 const msgs = [
   {
@@ -126,6 +131,25 @@ function App() {
       {/* @ GENERIC PROPS - Type of a certain prop can vary, parameterized types */}
       <Title txt="Generic Props" />
       <List items={[{id: 2}, {id: 7}, {id: 32}]} onClick={(item) => console.log('item: ', item.id)}/>
+      <HR/>
+
+      {/* @ RESTRICTING PROPS - Conditional Restricting Props */}
+      <Title txt="Restricting Props" />
+      <RandomNumber value={20} isPositive/>
+      <HR/>
+
+      {/* @ TEMPLATE LITERALS & EXCLUDE -  */}
+      <Title txt="Template Literals & Exclude" />
+      <Toast position='left-bottom'/>
+      <HR/>
+
+      {/* @ WRAPPING HTML ELEMENTS -  */}
+      <Title txt="Wrapping HTML Elements" />
+      <CustomButton variant='primary' onClick={() => console.log("tikladin")}>
+        Tikla
+      </CustomButton>
+      <CustomInput value='hasan' onChange={() => console.log("yazmaya calistin")} />
+      <CustomComponent name='ada' msgCount={2} msgs={[]} />
       <HR/>
     </>
   );

@@ -1,5 +1,4 @@
 // https://github.com/gopinav/React-TypeScript-Tutorials/tree/main/react-typescript-demo
-import './App.css';
 import { Greet } from './components/props/Greet';
 import { Status } from './components/props/Status';
 import { Wrapper } from './components/props/Wrapper';
@@ -17,6 +16,14 @@ import { HR } from './components/HR';
 import { ThemeContextProvider } from './components/context/ThemeContext';
 import { Box } from './components/context/Box';
 import { Title } from './components/Title';
+import { UserContextProvider } from './components/context/UserContext';
+import { TheUser } from './components/context/TheUser';
+import { DomRef } from './components/ref/DomRef';
+import { MutableRef } from './components/ref/MutableRef';
+import { ClassComp } from './components/class-component/ClassComp';
+import { Private } from './components/auth/Private';
+import { Profile } from './components/auth/Profile';
+import { List } from './components/generics/List';
 
 const msgs = [
   {
@@ -80,7 +87,7 @@ function App() {
       {/* @ STATE - Defining the type with initial value */}
       <Title txt="State" />
       <LoggedIn/>
-      {/* @ STATE - Stating the types and Type Asertion*/}
+      {/* @ STATE - Union Type and Type Asertion*/}
       <User/>
       <HR/>
       
@@ -89,11 +96,36 @@ function App() {
       <Counter/>
       <HR/>
       
-      {/* @ CONTEXT - */}
+      {/* @ CONTEXT - Defining the type with initial value */}
       <Title txt="Context" />
       <ThemeContextProvider>
         <Box/>
       </ThemeContextProvider>
+      {/* @ CONTEXT - Union Type and Type Asertion */}
+      <UserContextProvider>
+        <TheUser/>
+      </UserContextProvider>
+      <HR/>
+
+      {/* @ REF - Dom Var. and Mutable Ref */}
+      <Title txt="Ref" />
+      <DomRef/>
+      <MutableRef/>
+      <HR/>
+
+      {/* @ CLASS - State and Props */}
+      <Title txt="Class Component" />
+      <ClassComp message='hello' />
+      <HR/>
+
+      {/* @ Comp - Component as Prop */}
+      <Title txt="Component as Prop" />
+      <Private name="Hasan" isLoggedIn={true} component={Profile} />
+      <HR/>
+
+      {/* @ GENERIC PROPS - Type of a certain prop can vary, parameterized types */}
+      <Title txt="Generic Props" />
+      <List items={[{id: 2}, {id: 7}, {id: 32}]} onClick={(item) => console.log('item: ', item.id)}/>
       <HR/>
     </>
   );

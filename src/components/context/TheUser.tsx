@@ -1,8 +1,9 @@
 import { useContext } from 'react'
 import { UserContext } from './UserContext'
 
-export const User = () => {
+export const TheUser = () => {
   const userContext = useContext(UserContext)
+
   const handleLogin = () => {
     // if (userContext) {
     userContext.setUser({
@@ -11,11 +12,13 @@ export const User = () => {
     })
     // }
   }
+
   const handleLogout = () => {
     // if (userContext) {
     userContext.setUser(null)
     // }
   }
+
   return (
     <div>
       <button onClick={handleLogin}>Login</button>

@@ -29,6 +29,7 @@ import { Toast } from './components/templit/Toast';
 import { CustomButton } from './components/html/CustomButton';
 import { CustomInput } from './components/html/CustomInput';
 import { CustomComponent } from './components/html/CustomComponent';
+import { Text } from './components/polymorphic/Text';
 
 const msgs = [
   {
@@ -138,12 +139,12 @@ function App() {
       <RandomNumber value={20} isPositive/>
       <HR/>
 
-      {/* @ TEMPLATE LITERALS & EXCLUDE -  */}
+      {/* @ TEMPLATE LITERALS & EXCLUDE - Dynamic String Types with TempLit */}
       <Title txt="Template Literals & Exclude" />
       <Toast position='left-bottom'/>
       <HR/>
 
-      {/* @ WRAPPING HTML ELEMENTS -  */}
+      {/* @ WRAPPING HTML ELEMENTS - Assigning Default Props For An HTML Element */}
       <Title txt="Wrapping HTML Elements" />
       <CustomButton variant='primary' onClick={() => console.log("tikladin")}>
         Tikla
@@ -151,6 +152,18 @@ function App() {
       <CustomInput value='hasan' onChange={() => console.log("yazmaya calistin")} />
       <CustomComponent name='ada' msgCount={2} msgs={[]} />
       <HR/>
+
+      {/* @ POLYMORPHIC COMPONENTS -  */}
+      <Title txt="Polymorphic Components" />
+      <Text as='a' href='https://www.google.com' target='_blank' size='md' color='primary'>
+        Link
+      </Text>
+      <Text as='h2' size='md' color='primary'>
+        Heading
+      </Text>
+      <Text as='p' size='md' color='primary'>
+        Paragraph
+      </Text>
     </>
   );
 }

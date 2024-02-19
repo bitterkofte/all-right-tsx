@@ -7,7 +7,7 @@ type AuthUser = {
 
 export const User = () => {
   const [user, setUser] = useState<AuthUser | null>(null)
-  // TYPE ASERTION
+  // TYPE ASERTION - if the state won't be null again!
   // const [user, setUser] = useState<AuthUser>({} as AuthUser)
   const handleLogin = () => {
     setUser({
@@ -16,7 +16,6 @@ export const User = () => {
     })
   }
   const handleLogout = () => setUser(null)
-  // const handleLogout = () => 
   return (
     <div>
       <button onClick={handleLogin}>Login</button>
